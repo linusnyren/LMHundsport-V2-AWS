@@ -6,7 +6,7 @@ import AWSAmplifyConfig from './config/AWS-AmplifyConfig';
 import Register from './components/Register';
 import Sitenavbar from './Sitenavbar';
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 // import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 function App() {
