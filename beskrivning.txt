@@ -1,0 +1,15 @@
+
+Bokning och avbokning av privatkurser(1h) med Linn minst 24h innan.
+{ typ, tid, datum }
+
+Bokning och avbokning av färdigbyggd bana(1h) minst 12h innan.
+
+Längre fram.
+sortering så man kan boka 2h i samma svep på båda alternativen ovan.
+
+Spara "Skuld" för en månad.
+Gärna så man kan spåra betald och icke betald.
+
+ej inloggad när man försöker anmäla sig skickas man till login/registrering, efter detta så skickas man tillbaka till det eventet man försökte anmäla sig till.
+
+för fakturor behövs mailaddress, hemaddress(gata,postnummer) och fullt namn
