@@ -11,6 +11,7 @@ import Register from './pages/Register'
 //import Contact from './pages/Contact'
 import Home from './pages/Home'
 import Login from './pages/Login'
+import Activities from './pages/Activities'
 import { Auth } from "aws-amplify";
 //import AddEvent from './pages/AddEvent'
 //import About from './pages/About'
@@ -43,7 +44,7 @@ export default function AppRouter() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Link className="navBarItem" to="/">Hem</Link>
-              <Link className="navBarItem" to="/events">Aktiviter</Link>
+              <Link className="navBarItem" to="/activities">Aktiviter</Link>
               <Link className="navBarItem" to="/contact">Kontakta mig</Link>
               <Link className="navBarItem" to="/about">Om Linn</Link>
             </Nav>
@@ -72,6 +73,9 @@ export default function AppRouter() {
           </Route>
           <Route path="/register" component={Register}>
             <Register />
+          </Route>
+          <Route path="/activities" component={Activities}>
+            <Activities />
           </Route>
           <Route path="/" component={Home}>
             <Home />
