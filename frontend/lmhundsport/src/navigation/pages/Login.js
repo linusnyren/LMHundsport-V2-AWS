@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
-import {Form, Button, Spinner} from 'react-bootstrap'
+import {useHistory} from "react-router-dom";
+import {Form, Button} from 'react-bootstrap'
 import { Auth } from 'aws-amplify';
 import ResetPassword from '../../components/ResetPassword'
-export default function Login(){
+export default function Login(props){
+    const history = useHistory()
     const [user, setUser] = useState({
         email: null,
         password: null
@@ -14,6 +16,8 @@ export default function Login(){
         Auth.signIn(user.email,user.password)
         .then(res => {
             console.log(res)
+            
+            history.push('/')
             window.location.reload();
             setIsLoading(false)
         })
@@ -25,6 +29,9 @@ export default function Login(){
             setIsLoading(false)
         })
 
+    }
+    const go=()=>{
+        
     }
     return(
         <div>
@@ -40,6 +47,8 @@ export default function Login(){
             <Button onClick={() => login()}>{isLoading ? 'Loggar in dig...' : 'Logga in'}</Button>
         </Form>
         <Button style={{margin:10}} onClick={() => setFailed(!failed)}>Glömt lösenord</Button>
+        <Button style={{margin:10}} onClick={() => go()}>test</Button>
+        
         {failed ? 
             <div>
                 <h6>{failed}</h6>

@@ -6,40 +6,52 @@ import {
   Link
 } from "react-router-dom";
 import './AppRouter.css'
-import { Nav, Navbar,Button } from 'react-bootstrap'
+import { Nav, Navbar,Button,Row,Col } from 'react-bootstrap'
 import Register from './pages/Register'
 //import Contact from './pages/Contact'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Activities from './pages/Activities'
 import { Auth } from "aws-amplify";
-//import AddEvent from './pages/AddEvent'
+import AddEvent from './pages/AddEvent'
 //import About from './pages/About'
+import adminlist from '../constants/adminlist'
 export default function AppRouter() {
     const [loggedinUser, setLoggedInUser] = useState()
     useEffect(()=>{
         getLoggedInUser()
-    })
+    },[])
     const getLoggedInUser=async()=>{
         try{
             let user = await Auth.currentAuthenticatedUser()
-            setLoggedInUser(user.attributes)
+            if(user.attributes){
+              setLoggedInUser(user.attributes)
+            }
         }
         catch(err){
             console.log(err)
         }
     }
     const logout=()=>{
-       Auth.signOut().then(res => {
+      Auth.signOut({ global: true })
+      .then(res => {
             setLoggedInUser(null);
-            window.location.reload();
+            window.location.reload()
         })
+    }
+    const adminPanel=()=>{
+      if(adminlist.includes(loggedinUser)){
+        return true
+      }
+      else{
+        return false
+      }
     }
   return (
     <div>
       <Router>
         <Navbar sticky='top' bg="dark" variant="dark" expand="lg">
-          <Navbar.Brand><Link className="navLogo" to="/addevent"> LM-HundSport</Link></Navbar.Brand>
+          <Navbar.Brand><Link className="navLogo" to="/"> LM-HundSport</Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
@@ -47,13 +59,14 @@ export default function AppRouter() {
               <Link className="navBarItem" to="/activities">Aktiviter</Link>
               <Link className="navBarItem" to="/contact">Kontakta mig</Link>
               <Link className="navBarItem" to="/about">Om Linn</Link>
+              <Link className="navBarItem" to="/addEvent">Lägg till</Link>
             </Nav>
             <Navbar.Text>
               {loggedinUser ? 
-                <div style={{flexDirection: 'row', alignContent:'center'}}>
-                  <h6>Inloggad som: {loggedinUser.given_name}</h6>
-                  <Button onClick={() => logout()}>Logga ut</Button>
-                </div>
+                <Row>
+                  <Col><h6>Inloggad som: {loggedinUser.given_name}</h6></Col>
+                  <Col><Button onClick={() => logout()}>Logga ut</Button></Col>
+                  </Row>
                 :
                 <div>
                     <Link to="/login"> Login </Link>
@@ -76,6 +89,9 @@ export default function AppRouter() {
           </Route>
           <Route path="/activities" component={Activities}>
             <Activities />
+          </Route>
+          <Route path="/addEvent" component={AddEvent}>
+            <AddEvent />
           </Route>
           <Route path="/" component={Home}>
             <Home />
