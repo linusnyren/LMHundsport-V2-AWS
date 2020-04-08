@@ -29,7 +29,7 @@ export default function AppRouter() {
         }
     }
     const logout=()=>{
-        Auth.signOut().then(res => {
+       Auth.signOut().then(res => {
             setLoggedInUser(null);
             window.location.reload();
         })
@@ -49,7 +49,7 @@ export default function AppRouter() {
             </Nav>
             <Navbar.Text>
               {loggedinUser ? 
-                <div style={{flexDirection: 'row'}}>
+                <div style={{flexDirection: 'row', alignContent:'center'}}>
                   <h6>Inloggad som: {loggedinUser.given_name}</h6>
                   <Button onClick={() => logout()}>Logga ut</Button>
                 </div>

@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import {Form, Button, Spinner} from 'react-bootstrap'
 import { Auth } from 'aws-amplify';
-
+import ResetPassword from '../../components/ResetPassword'
 export default function Login(){
     const [user, setUser] = useState({
         email: null,
@@ -11,21 +11,24 @@ export default function Login(){
     const [failed, setFailed] = useState(false)
     const login=()=>{
         setIsLoading(true)
-        try{
         Auth.signIn(user.email,user.password)
         .then(res => {
-            
             console.log(res)
             window.location.reload();
             setIsLoading(false)
         })
-        }
-        catch(err){
+        .catch(err =>{
             console.log(err)
-            setFailed(true)
-        }
+            if(err.message === "Incorrect username or password."){
+                setFailed("Fel lösenord eller mailaddress")
+            }
+            setIsLoading(false)
+        })
+
     }
+
     return(
+        <div>
         <Form>
             <Form.Group controlId="formBasicName">
             <Form.Label>Mail</Form.Label>
@@ -36,7 +39,15 @@ export default function Login(){
                 <Form.Control type="password" placeholder="Lösenord" onChange={e => setUser(user, user.password=e.target.value)}/>
             </Form.Group>
             <Button onClick={() => login()}>{isLoading ? 'Loggar in dig...' : 'Logga in'}</Button>
-            {failed ? <h6>Något gick fel, prova igen eller kontakta världens bästa programmerare</h6> : <div/>}
         </Form>
+        <Button style={{margin:10}} onClick={() => setFailed(!failed)}>Glömt lösenord</Button>
+        {failed ? 
+            <div>
+                <h6>{failed}</h6>
+                <ResetPassword setFailed={setFailed.bind(this)}/> 
+            </div>
+            : 
+            <div/>}
+        </div>
     )
 }
