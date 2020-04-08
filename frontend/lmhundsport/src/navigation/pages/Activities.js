@@ -1,16 +1,10 @@
 import React, { useState,useEffect } from 'react';
-import DatePicker from 'react-datepicker';
-import setHours from "date-fns/setHours";
-import setMinutes from "date-fns/setMinutes";
 // import {DropdownButton, Dropdown} from 'react-bootstrap';
-
-import "react-datepicker/dist/react-datepicker.css";
+import moment from 'moment';
+import DateTimePicker from 'react-datetime-picker';
 
 export default function Activities() {
-  const [startDate, setStartDate] = useState(null);
-  useEffect(() => {
-    setStartDate(new Date().getUTCMilliseconds())
-  }, [])
+  const [startDate, setStartDate] = useState(new Date());
 
   console.log(startDate)
   return (
@@ -20,7 +14,7 @@ export default function Activities() {
         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
       </DropdownButton> */}
-      <DatePicker 
+      {/*<DatePicker 
         selected={startDate} 
         onChange={date => setStartDate(date)}
         showTimeSelect
@@ -28,7 +22,13 @@ export default function Activities() {
         maxTime={setHours(setMinutes(new Date(), 30), 20)}
         dateFormat="d MMMM, yyyy HH:mm"
         
-      />
+      />*/}
+        <DateTimePicker
+          onChange={e => setStartDate(e)}
+          format="y-MM-dd HH:mm "
+          value={startDate}
+          returnValue="start"
+        />
       <h1>{JSON.stringify(startDate)}</h1>
       
     </div>
