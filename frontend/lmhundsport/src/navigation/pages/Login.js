@@ -25,6 +25,7 @@ export default function Login(){
             setFailed(true)
         }
     }
+    console.log('hej');
     return(
         <Form>
             <Form.Group controlId="formBasicName">
