@@ -44,10 +44,9 @@ export default function Login(props){
                 <Form.Label>Lösenord</Form.Label>
                 <Form.Control type="password" placeholder="Lösenord" onChange={e => setUser(user, user.password=e.target.value)}/>
             </Form.Group>
-            <Button onClick={() => login()}>{isLoading ? 'Loggar in dig...' : 'Logga in'}</Button>
+            <Button style={{margin:10}} onClick={() => login()}>{isLoading ? 'Loggar in dig...' : 'Logga in'}</Button>
         </Form>
         <Button style={{margin:10}} onClick={() => setFailed(!failed)}>Glömt lösenord</Button>
-        <Button style={{margin:10}} onClick={() => go()}>test</Button>
         
         {failed ? 
             <div>

@@ -88,9 +88,9 @@ export default function Register(){
                         Registrera mig
                     </Button>
                     :
-                    <Form.Group controlId="formBasicName">
+                    <Form.Group controlId="formBasicCode">
                           <Form.Label>Bekräftningskod</Form.Label>
-                          <Form.Control type="email" placeholder="Linn" onChange={e => setCode(e.target.value)}/>
+                          <Form.Control type="code" placeholder="xxxxxx" onChange={e => setCode(e.target.value)}/>
                           <Form.Text className="text-muted">
                               Ange bekräftningskoden ni fick till er mail, ni kan behöva kolla i skräpposten
                           </Form.Text>

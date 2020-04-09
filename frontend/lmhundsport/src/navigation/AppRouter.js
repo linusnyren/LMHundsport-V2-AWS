@@ -15,7 +15,7 @@ import Activities from './pages/Activities'
 import { Auth } from "aws-amplify";
 import AddEvent from './pages/AddEvent'
 //import About from './pages/About'
-import adminlist from '../constants/adminlist'
+//import adminlist from '../constants/adminlist'
 export default function AppRouter() {
     const [loggedinUser, setLoggedInUser] = useState()
     useEffect(()=>{
@@ -39,14 +39,14 @@ export default function AppRouter() {
             window.location.reload()
         })
     }
-    const adminPanel=()=>{
+    /*const adminPanel=()=>{
       if(adminlist.includes(loggedinUser)){
         return true
       }
       else{
         return false
       }
-    }
+    }*/
   return (
     <div>
       <Router>
