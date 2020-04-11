@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
 import {useHistory} from "react-router-dom";
-import {Form, Button} from 'react-bootstrap'
+import {Form, Button, Row, Col} from 'react-bootstrap'
 import { Auth } from 'aws-amplify';
 import ResetPassword from '../../components/ResetPassword'
+import Register from './Register'
+import './Login.css'
 export default function Login(props){
     const history = useHistory()
     const [user, setUser] = useState({
@@ -34,7 +36,8 @@ export default function Login(props){
         
     }
     return(
-        <div>
+        <div className="container">
+            <div className="form">
         <Form>
             <Form.Group controlId="formBasicName">
             <Form.Label>Mail</Form.Label>
@@ -55,6 +58,10 @@ export default function Login(props){
             </div>
             : 
             <div/>}
+            </div>
+            <div className="form">
+        <Register />
+        </div>
         </div>
     )
 }

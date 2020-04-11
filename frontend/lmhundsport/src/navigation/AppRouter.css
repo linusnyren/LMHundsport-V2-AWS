@@ -1,20 +1,39 @@
 .navBarItem{
-    
     display: block;
     padding: .5rem .5rem;
     background-color: transparent;
     color: gray;
+    font-family: Helvetica;
+    font-weight: 300;
+}
+.bg-blue{
+    background-color: whitesmoke;
+}
+.loginRegister{
+    background-color: rgb(255, 184, 53);
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    color:gray;
+    font-family: Helvetica;
+    font-weight: 300;
+}
+.loginRegister:hover{
+    color: white;
+    text-decoration: none;
+    background-color: skyblue;
 }
 .navBarItem:hover{
     text-decoration: none;
-    color: rgba(245, 245, 245, 0.774);
+    color: rgb(255, 184, 53);
 }
 .navLogo{
     display: block;
     background-color: transparent;
-    color: white;
+    color: rgb(255, 184, 53);
+    font-family: Helvetica;
+    font-weight: 300;
 }
 .navLogo:hover{
     text-decoration: none;
-    color: rgba(245, 245, 245, 0.774);
+    color: skyblue;
 }

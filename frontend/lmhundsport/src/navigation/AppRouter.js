@@ -50,15 +50,15 @@ export default function AppRouter() {
   return (
     <div>
       <Router>
-        <Navbar sticky='top' bg="dark" variant="dark" expand="lg">
-          <Navbar.Brand><Link className="navLogo" to="/"> LM-HundSport</Link></Navbar.Brand>
+        <Navbar sticky='top' bg="blue" variant="light" expand="lg">
+          <Navbar.Brand><Link className="navLogo" to="/"> LM-HUNDSPORT</Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Link className="navBarItem" to="/">Hem</Link>
-              <Link className="navBarItem" to="/activities">Aktiviter</Link>
-              <Link className="navBarItem" to="/contact">Kontakta mig</Link>
-              <Link className="navBarItem" to="/about">Om Linn</Link>
+              <Link className="navBarItem" to="/">HEM</Link>
+              <Link className="navBarItem" to="/activities">AKTIVITETER</Link>
+              <Link className="navBarItem" to="/contact">KONTAKT</Link>
+              <Link className="navBarItem" to="/about">OM</Link>
               <Link className="navBarItem" to="/addEvent">Lägg till</Link>
             </Nav>
             <Navbar.Text>
@@ -69,8 +69,7 @@ export default function AppRouter() {
                   </Row>
                 :
                 <div>
-                    <Link to="/login"> Login </Link>
-                    <Link to="/register"> Register </Link>
+                    <Link className="loginRegister"to="/login">Logga in / Registrering</Link>
                 </div>}
             </Navbar.Text>
           </Navbar.Collapse>
