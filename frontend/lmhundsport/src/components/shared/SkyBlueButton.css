@@ -1,0 +1,23 @@
+.skyBlueButtonContainer{
+    background-color: skyblue;
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    color:gray;
+    text-align: center;
+    position: relative;
+    max-width: 200px;
+    align-self: center;
+}
+.title{
+    text-align: center;
+    font-family: Helvetica;
+    font-weight: 500;
+    left:50%;
+    align-self: center;
+}
+.skyBlueButtonContainer:hover{
+    color: white;
+    text-decoration: none;
+    background-color: skyblue;
+    cursor:grab;
+}

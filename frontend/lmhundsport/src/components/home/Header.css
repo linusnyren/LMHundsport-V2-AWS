@@ -1,0 +1,35 @@
+.headerContainer{
+    text-align: center;
+    font-weight: 300;
+    background-color: skyblue;
+    padding:50px;
+    animation: colorshift 1.5s;
+    font-family: Helvetica;
+    font-weight: 200;
+    box-shadow: 0 1px 19px 1px black;
+    box-shadow: inset 0px 1px 20px 0px gray;
+    border-radius: 10;
+
+}
+body{
+    background-image: url("https://cmkt-image-prd.freetls.fastly.net/0.1.0/ps/2086924/910/606/m2/fpnw/wm1/ioia4zoa41xau0bvkvrwvb4tzogatmsgqpio5izdp7bwfeud0hg5czpihebk7sv3-.jpg?1483468179&s=bd24e99892eb55591d2860aaaa328226");
+}
+.headerHeaderText{
+    font-size: 20;
+    animation: fadein 2s;
+}
+.headerWelcome{
+    animation: fadein 1.5s;
+}
+@keyframes fadein{
+    from{opacity: 0%; color:white}
+    to{opacity:100%; color:black}
+}
+@keyframes colorshift{
+    from{
+        background-color: black;
+        margin-bottom:-1000px;
+    }
+    to{background-color: skyblue;
+    }
+}
