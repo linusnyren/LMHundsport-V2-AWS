@@ -1,0 +1,21 @@
+.orangeButtonContainer{
+    background-color: rgb(255, 184, 53);
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    color:gray;
+    text-align: center;
+    position: relative;
+}
+.title{
+    text-align: center;
+    font-family: Helvetica;
+    font-weight: 500;
+    left:50%;
+    align-self: center;
+}
+.orangeButtonContainer:hover{
+    color: white;
+    text-decoration: none;
+    background-color: skyblue;
+    cursor:grab;
+}

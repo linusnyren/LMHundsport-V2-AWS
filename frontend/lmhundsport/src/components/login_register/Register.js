@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import endpoints from '../../constants/endpoints'
 import { Auth } from 'aws-amplify';
-import {Form, Button} from 'react-bootstrap'
+import {Form, Button, InputGroup} from 'react-bootstrap'
+import OrangeButton from '../shared/OrangeButton'
 
 export default function Register(){
     const [user, setUser] = useState({
@@ -49,7 +50,7 @@ export default function Register(){
         return(
             <div>
                 <Form>
-                    <Form.Group controlId="formBasicName">
+                    <Form.Group controlId="formBasicRegisterName">
                       <Form.Label>Förnamn</Form.Label>
                       <Form.Control type="email" placeholder="Linn" onChange={e => setUser(user, user.givenName=e.target.value)}/>
                       <Form.Text className="text-muted">
@@ -68,15 +69,19 @@ export default function Register(){
                           Vi kommer att hålla er mail för oss själva
                       </Form.Text>
                     </Form.Group>
-                    <Form.Group controlId="formBasicPhone">
+                    <Form.Group>
                       <Form.Label>Telefon</Form.Label>
-                      <Form.Control type="email" placeholder="07********" onChange={e => setUser(user, user.phone=e.target.value)}/>
-                      <Form.Text className="text-muted">
+                        <InputGroup>
+                            <InputGroup.Prepend>
+                                <InputGroup.Text id="inputGroupPrepend">+46</InputGroup.Text>
+                            </InputGroup.Prepend>
+                            <Form.Control type="email" placeholder="7********" onChange={e => setUser(user, user.phone=e.target.value)}/>
+                        </InputGroup>
+                        <Form.Text>
                           Ifall jag behöver komma i kontakt med er
-                      </Form.Text>
+                        </Form.Text>
                     </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
+                    <Form.Group>
                       <Form.Label>Lösenord</Form.Label>
                       <Form.Control type="password" placeholder="Lösenord" onChange={e => setUser(user, user.password=e.target.value)}/>
                       <Form.Text className="text-muted">
@@ -84,17 +89,17 @@ export default function Register(){
                       </Form.Text>
                     </Form.Group>
                     {step === 0 ? 
-                    <Button variant="primary" onClick={() => testSignup()}>
+                    <OrangeButton variant="primary" onClick={() => testSignup()}>
                         Registrera mig
-                    </Button>
+                    </OrangeButton>
                     :
-                    <Form.Group controlId="formBasicCode">
+                    <Form.Group>
                           <Form.Label>Bekräftningskod</Form.Label>
                           <Form.Control type="code" placeholder="xxxxxx" onChange={e => setCode(e.target.value)}/>
                           <Form.Text className="text-muted">
                               Ange bekräftningskoden ni fick till er mail, ni kan behöva kolla i skräpposten
                           </Form.Text>
-                          <Button onClick={() => confirmSignup()}>Ok</Button>
+                          <OrangeButton onClick={() => confirmSignup()}>Ok</OrangeButton>
                     </Form.Group>}
                 </Form>
             </div>

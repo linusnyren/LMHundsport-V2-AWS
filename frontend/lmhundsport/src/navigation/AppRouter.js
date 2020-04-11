@@ -7,13 +7,13 @@ import {
 } from "react-router-dom";
 import './AppRouter.css'
 import { Nav, Navbar,Button,Row,Col } from 'react-bootstrap'
-import Register from './pages/Register'
 //import Contact from './pages/Contact'
 import Home from './pages/Home'
-import Login from './pages/Login'
+import LoginRegister from './pages/LoginRegister'
 import Activities from './pages/Activities'
 import { Auth } from "aws-amplify";
 import AddEvent from './pages/AddEvent'
+import OrangeButton from '../components/shared/OrangeButton'
 //import About from './pages/About'
 //import adminlist from '../constants/adminlist'
 export default function AppRouter() {
@@ -65,11 +65,11 @@ export default function AppRouter() {
               {loggedinUser ? 
                 <Row>
                   <Col><h6>Inloggad som: {loggedinUser.given_name}</h6></Col>
-                  <Col><Button onClick={() => logout()}>Logga ut</Button></Col>
+                  <Col><OrangeButton onClick={() => logout()}>Logga ut</OrangeButton></Col>
                   </Row>
                 :
                 <div>
-                    <Link className="loginRegister"to="/login">Logga in / Registrering</Link>
+                    <OrangeButton><Link className="loginRegister" to="/loginregister">Logga in / Registrering</Link></OrangeButton>
                 </div>}
             </Navbar.Text>
           </Navbar.Collapse>
@@ -80,11 +80,8 @@ export default function AppRouter() {
             renders the first one that matches the current URL. */}
         <Switch>
 
-          <Route path="/login" component={Login}>
-            <Login />
-          </Route>
-          <Route path="/register" component={Register}>
-            <Register />
+          <Route path="/loginregister" component={LoginRegister}>
+            <LoginRegister />
           </Route>
           <Route path="/activities" component={Activities}>
             <Activities />

@@ -1,10 +1,9 @@
 import React,{useState} from 'react'
 import {useHistory} from "react-router-dom";
-import {Form, Button, Row, Col} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap'
 import { Auth } from 'aws-amplify';
-import ResetPassword from '../../components/ResetPassword'
-import Register from './Register'
-import './Login.css'
+import ResetPassword from '../ResetPassword'
+import OrangeButton from '../shared/OrangeButton'
 export default function Login(props){
     const history = useHistory()
     const [user, setUser] = useState({
@@ -32,12 +31,9 @@ export default function Login(props){
         })
 
     }
-    const go=()=>{
-        
-    }
+
     return(
-        <div className="container">
-            <div className="form">
+        <div>
         <Form>
             <Form.Group controlId="formBasicName">
             <Form.Label>Mail</Form.Label>
@@ -47,10 +43,10 @@ export default function Login(props){
                 <Form.Label>Lösenord</Form.Label>
                 <Form.Control type="password" placeholder="Lösenord" onChange={e => setUser(user, user.password=e.target.value)}/>
             </Form.Group>
-            <Button style={{margin:10}} onClick={() => login()}>{isLoading ? 'Loggar in dig...' : 'Logga in'}</Button>
+            <OrangeButton style={{margin:10}} onClick={() => login()}>{isLoading ? 'Loggar in dig...' : 'Logga in'}</OrangeButton>
         </Form>
-        <Button style={{margin:10}} onClick={() => setFailed(!failed)}>Glömt lösenord</Button>
         
+        <OrangeButton  onClick={() => setFailed(!failed)}>Glömt lösenord</OrangeButton>
         {failed ? 
             <div>
                 <h6>{failed}</h6>
@@ -58,10 +54,6 @@ export default function Login(props){
             </div>
             : 
             <div/>}
-            </div>
-            <div className="form">
-        <Register />
-        </div>
         </div>
     )
 }

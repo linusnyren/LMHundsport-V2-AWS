@@ -9,23 +9,12 @@
 .bg-blue{
     background-color: whitesmoke;
 }
-.loginRegister{
-    background-color: rgb(255, 184, 53);
-    padding: .5rem 1rem;
-    border-radius: 20px;
-    color:gray;
-    font-family: Helvetica;
-    font-weight: 300;
-}
+
 .loginRegister:hover{
-    color: white;
     text-decoration: none;
-    background-color: skyblue;
 }
-.navBarItem:hover{
-    text-decoration: none;
-    color: rgb(255, 184, 53);
-}
+
+
 .navLogo{
     display: block;
     background-color: transparent;
