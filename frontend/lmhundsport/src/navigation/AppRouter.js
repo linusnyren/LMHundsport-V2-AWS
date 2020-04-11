@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import './AppRouter.css'
-import { Nav, Navbar,Button,Row,Col } from 'react-bootstrap'
+import { Nav, Navbar,Row,Col } from 'react-bootstrap'
 //import Contact from './pages/Contact'
 import Home from './pages/Home'
 import LoginRegister from './pages/LoginRegister'
@@ -14,8 +14,7 @@ import Activities from './pages/Activities'
 import { Auth } from "aws-amplify";
 import AddEvent from './pages/AddEvent'
 import OrangeButton from '../components/shared/OrangeButton'
-//import About from './pages/About'
-//import adminlist from '../constants/adminlist'
+import axios from 'axios'
 export default function AppRouter() {
     const [loggedinUser, setLoggedInUser] = useState()
     useEffect(()=>{
@@ -36,6 +35,7 @@ export default function AppRouter() {
       Auth.signOut({ global: true })
       .then(res => {
             setLoggedInUser(null);
+            axios.defaults.headers.common['Authorisation'] = "";
             window.location.reload()
         })
     }

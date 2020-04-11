@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import endpoints from '../../constants/endpoints'
 import { Auth } from 'aws-amplify';
-import {Form, Button, InputGroup} from 'react-bootstrap'
+import {Form, InputGroup} from 'react-bootstrap'
 import OrangeButton from '../shared/OrangeButton'
 
 export default function Register(){
@@ -52,13 +52,13 @@ export default function Register(){
                 <Form>
                     <Form.Group controlId="formBasicRegisterName">
                       <Form.Label>Förnamn</Form.Label>
-                      <Form.Control type="email" placeholder="Linn" onChange={e => setUser(user, user.givenName=e.target.value)}/>
+                      <Form.Control type="firstname" placeholder="Linn" onChange={e => setUser(user, user.givenName=e.target.value)}/>
                       <Form.Text className="text-muted">
                       </Form.Text>
                     </Form.Group>
                     <Form.Group controlId="formBasicSurname">
                       <Form.Label>Efternamn</Form.Label>
-                      <Form.Control type="email" placeholder="Magnusson" onChange={e => setUser(user, user.surname=e.target.value)}/>
+                      <Form.Control type="lastname" placeholder="Magnusson" onChange={e => setUser(user, user.surname=e.target.value)}/>
                       <Form.Text className="text-muted">
                       </Form.Text>
                     </Form.Group>
@@ -75,7 +75,7 @@ export default function Register(){
                             <InputGroup.Prepend>
                                 <InputGroup.Text id="inputGroupPrepend">+46</InputGroup.Text>
                             </InputGroup.Prepend>
-                            <Form.Control type="email" placeholder="7********" onChange={e => setUser(user, user.phone=e.target.value)}/>
+                            <Form.Control type="phone" placeholder="7********" onChange={e => setUser(user, user.phone=e.target.value)}/>
                         </InputGroup>
                         <Form.Text>
                           Ifall jag behöver komma i kontakt med er
@@ -89,7 +89,7 @@ export default function Register(){
                       </Form.Text>
                     </Form.Group>
                     {step === 0 ? 
-                    <OrangeButton variant="primary" onClick={() => testSignup()}>
+                    <OrangeButton onClick={() => testSignup()}>
                         Registrera mig
                     </OrangeButton>
                     :

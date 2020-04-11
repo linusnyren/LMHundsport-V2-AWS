@@ -4,6 +4,7 @@ import {Form, Button} from 'react-bootstrap'
 import { Auth } from 'aws-amplify';
 import ResetPassword from '../ResetPassword'
 import OrangeButton from '../shared/OrangeButton'
+import axios from 'axios';
 export default function Login(props){
     const history = useHistory()
     const [user, setUser] = useState({
@@ -17,7 +18,7 @@ export default function Login(props){
         Auth.signIn(user.email,user.password)
         .then(res => {
             console.log(res)
-            
+            axios.defaults.headers.common['Authorisation'] = res.username;
             history.push('/')
             window.location.reload();
             setIsLoading(false)
