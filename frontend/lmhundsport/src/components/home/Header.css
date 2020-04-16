@@ -1,13 +1,16 @@
 .headerContainer{
     text-align: center;
     font-weight: 300;
-    background-color: skyblue;
+    background-color:  rgb(31,78,121);
     padding:50px;
     animation: colorshift 1.5s;
+    animation-delay: .1s;
+    margin: 10px 10px;
+    border-radius: 20px;
     font-family: Helvetica;
     font-weight: 200;
-    box-shadow: 0 1px 19px 1px black;
-    box-shadow: inset 0px 1px 20px 0px gray;
+    max-width:800px;
+    box-shadow:  0px 1px 20px 0px black;
     border-radius: 10;
 
 }
@@ -19,6 +22,7 @@ body{
     animation: fadein 2s;
 }
 .headerWelcome{
+    font-style: italic;
     animation: fadein 1.5s;
 }
 @keyframes fadein{
@@ -30,6 +34,6 @@ body{
         background-color: black;
         margin-bottom:-1000px;
     }
-    to{background-color: skyblue;
+    to{background-color:  rgb(31,78,121);
     }
 }

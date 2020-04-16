@@ -18,11 +18,11 @@
 .navLogo{
     display: block;
     background-color: transparent;
-    color: rgb(255, 184, 53);
+    color: rgb(243,106,21);
     font-family: Helvetica;
     font-weight: 300;
 }
 .navLogo:hover{
     text-decoration: none;
-    color: skyblue;
+    color: rgb(31,78,121);
 }

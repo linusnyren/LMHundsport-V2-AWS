@@ -1,0 +1,8 @@
+.flexContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    padding-bottom:100px;
+}
