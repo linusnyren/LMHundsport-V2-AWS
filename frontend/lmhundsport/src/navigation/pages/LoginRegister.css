@@ -1,9 +1,9 @@
-.container{
+.LoginRegistercontainer{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    align-content: flex-start;
+    align-content: center;
 }
 .form{
     width:400px;

@@ -10,7 +10,7 @@ import { Nav, Navbar,Row,Col } from 'react-bootstrap'
 //import Contact from './pages/Contact'
 import Home from './pages/Home'
 import LoginRegister from './pages/LoginRegister'
-import Activities from './pages/Activities'
+import ActivitiesPage from './pages/ActivitiesPage'
 import { Auth } from "aws-amplify";
 import AddEvent from './pages/AddEvent'
 import OrangeButton from '../components/shared/OrangeButton'
@@ -83,8 +83,8 @@ export default function AppRouter() {
           <Route path="/loginregister" component={LoginRegister}>
             <LoginRegister />
           </Route>
-          <Route path="/activities" component={Activities}>
-            <Activities />
+          <Route path="/activities" component={ActivitiesPage}>
+            <ActivitiesPage />
           </Route>
           <Route path="/addEvent" component={AddEvent}>
             <AddEvent />

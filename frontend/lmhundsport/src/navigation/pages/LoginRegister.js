@@ -6,7 +6,7 @@ import './LoginRegister.css'
 export default function LoginRegister(){
 
     return(
-        <div className="container">
+        <div className="LoginRegistercontainer">
             <div className="form">
                 <Login />
             </div>

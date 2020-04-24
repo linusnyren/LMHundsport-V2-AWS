@@ -5,9 +5,9 @@ import axios from 'axios';
 import {Form, Modal, Button} from 'react-bootstrap'
 import * as moment from 'moment'
 import { Auth } from "aws-amplify";
-import './AddEvent.css'
+import './Activities.css'
 import OrangeButton from '../../components/shared/OrangeButton';
-export default function AddEvent(){
+export default function Activities(){
     const [startDate, setStartDate] = useState(new Date());
     const [duration, setDuration] = useState(0);
     const [type, setType] = useState();
@@ -22,7 +22,7 @@ export default function AddEvent(){
                 start:moment(startDate).unix(),
                 end:getEndDate().unix()
             }
-            console.log(obj)
+            alert(JSON.stringify(obj))
         }
         else{
             setShow(true)
