@@ -5,6 +5,12 @@ import { Auth } from 'aws-amplify';
 import ResetPassword from '../ResetPassword'
 import OrangeButton from '../shared/OrangeButton'
 import axios from 'axios';
+import { NeuDiv } from "neumorphism-react";
+import NeuInput from './NeuInput'
+import './Login.css'
+import color from '../../constants/color'
+import NeuButton from '../shared/NeuButton'
+
 export default function Login(props){
     const history = useHistory()
     const [user, setUser] = useState({
@@ -34,20 +40,22 @@ export default function Login(props){
     }
 
     return(
-        <div>
-        <Form>
-            <Form.Group controlId="formBasicName">
-            <Form.Label>Mail</Form.Label>
-            <Form.Control type="email" placeholder="Mail@Mail.com" onChange={e => setUser(user, user.email=e.target.value)}/>
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-                <Form.Label>Lösenord</Form.Label>
-                <Form.Control type="password" placeholder="Lösenord" onChange={e => setUser(user, user.password=e.target.value)}/>
-            </Form.Group>
-            <OrangeButton style={{margin:10}} onClick={() => login()}>{isLoading ? 'Loggar in dig...' : 'Logga in'}</OrangeButton>
-        </Form>
-        
-        <OrangeButton  onClick={() => setFailed(!failed)}>Glömt lösenord</OrangeButton>
+        <NeuDiv className="container" color={color.blue}>
+            <h3>Logga in</h3>
+            <NeuInput
+                placeholder="lmhundsport@hotmail.com"
+                title="Mail"
+                color={color.blue}
+                onChange={(e) => setUser(user, user.email=e)}
+            />
+            <NeuInput
+                placeholder="xxxx"
+                title="Lösenord"
+                color={color.blue}
+                onChange={(e) => setUser(user, user.password=e)}
+            />
+        <NeuButton color={color.blue} onClick={() => login()}>Logga in</NeuButton>
+        <NeuButton color={color.blue} onClick={() => setFailed(!failed)}>Glömt lösenord</NeuButton>
         {failed ? 
             <div>
                 <h6>{failed}</h6>
@@ -55,6 +63,6 @@ export default function Login(props){
             </div>
             : 
             <div/>}
-        </div>
+        </NeuDiv>
     )
 }

@@ -1,10 +1,12 @@
 import React from 'react'
 import './ImageTextContainer.css'
+import { NeuDiv } from "neumorphism-react";
+import color from '../../constants/color'
 export default function ImageTextContainer({children, imageLeft, image}){
 
     if(imageLeft)
     return(
-        <div className="containerLeft">
+        <NeuDiv className="containerLeft" color={color.blue} distance={5}>
             <img className="image" src={image}/>
             <div className="descriptionContainer">
                 <div className="description">
@@ -14,12 +16,12 @@ export default function ImageTextContainer({children, imageLeft, image}){
                 </div>
             </div>
 
-        </div>
+        </NeuDiv>
 
     )
     else{
         return(
-        <div className="containerRight">
+        <NeuDiv className="containerRight" color={color.blue} distance={5}>
             
             <div className="descriptionContainer">
                     <p className="description">
@@ -28,7 +30,7 @@ export default function ImageTextContainer({children, imageLeft, image}){
             </div>
             <img className="image" src={image}/>
             
-        </div>
+        </NeuDiv>
         )
     }
 }

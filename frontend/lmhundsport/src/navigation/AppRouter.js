@@ -13,7 +13,8 @@ import LoginRegister from './pages/LoginRegister'
 import ActivitiesPage from './pages/ActivitiesPage'
 import { Auth } from "aws-amplify";
 import AddEvent from './pages/AddEvent'
-import OrangeButton from '../components/shared/OrangeButton'
+import NeuButton from '../components/shared/NeuButton'
+import color from '../constants/color'
 import axios from 'axios'
 export default function AppRouter() {
     const [loggedinUser, setLoggedInUser] = useState()
@@ -51,26 +52,25 @@ export default function AppRouter() {
     <div>
       <Router>
         <Navbar sticky='top' bg="blue" variant="light" expand="lg">
-          <Navbar.Brand><Link className="navLogo" to="/"> LM-HUNDSPORT</Link></Navbar.Brand>
+        <NeuButton color={color.orange}><Navbar.Brand><Link className="navBarItem" to="/"> LM-HUNDSPORT</Link></Navbar.Brand></NeuButton>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Link className="navBarItem" to="/">HEM</Link>
-              <Link className="navBarItem" to="/activities">AKTIVITETER</Link>
-              <Link className="navBarItem" to="/contact">KONTAKT</Link>
-              <Link className="navBarItem" to="/about">OM</Link>
-              <Link className="navBarItem" to="/addEvent">Lägg till</Link>
+            <NeuButton color={color.orange}><Link className="navBarItem" to="/">Hem</Link></NeuButton>
+            <NeuButton color={color.orange}><Link className="navBarItem" to="/activities">Aktiviteter</Link></NeuButton>
+            <NeuButton color={color.orange}><Link className="navBarItem" to="/contact">Kontakt</Link></NeuButton>
+            <NeuButton color={color.orange}><Link className="navBarItem" to="/about">Om</Link></NeuButton>
+            <NeuButton color={color.orange}><Link className="navBarItem" to="/addEvent">Lägg till</Link></NeuButton>
             </Nav>
             <Navbar.Text>
               {loggedinUser ? 
                 <Row>
                   <Col><h6>Inloggad som: {loggedinUser.given_name}</h6></Col>
-                  <Col><OrangeButton onClick={() => logout()}>Logga ut</OrangeButton></Col>
+                  <Col><NeuButton color={color.orange} onClick={() => logout()}>Logga ut</NeuButton></Col>
                   </Row>
                 :
-                <div>
-                    <OrangeButton><Link className="loginRegister" to="/loginregister">Logga in / Registrering</Link></OrangeButton>
-                </div>}
+                  <NeuButton color={color.orange}><Link className="navBarItem" to="/loginregister">Logga in / Registrering</Link></NeuButton>
+                }
             </Navbar.Text>
           </Navbar.Collapse>
         </Navbar>
