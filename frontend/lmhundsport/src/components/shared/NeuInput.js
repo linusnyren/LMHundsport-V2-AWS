@@ -9,6 +9,7 @@ export default function NeuInput({onChange, title, placeholder, color}){
             placeholder={placeholder}
             color={color}
             onChange={onChange}
+            distance={3}
             />
         </div>
     )

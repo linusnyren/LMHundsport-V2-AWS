@@ -1,14 +1,16 @@
 import React,{useState} from 'react'
 import {Form, Button} from 'react-bootstrap'
 import { Auth } from 'aws-amplify';
-
+import NeuInput from './shared/NeuInput'
+import NeuButton from './shared/NeuButton'
+import color from '../constants/color'
 export default function ResetPassword({setFailed}){
     const[update, setUpdate]=useState({
         mail:null,
         code:null,
         password:null
     })
-    const [step, setStep] = useState(0)
+    const [step, setStep] = useState(1)
     const resetPassword=async()=>{
         console.log(update.mail)
         Auth.forgotPassword(update.mail)
@@ -30,37 +32,36 @@ export default function ResetPassword({setFailed}){
     }
     if(step===0){
     return(
-            <Form>
-                <Form.Group >
-                <Form.Label>Vill du återställa ditt lösenord?</Form.Label>
-                <Form.Control type="email" placeholder="Mail@Mail.com" onChange={e => setUpdate(update, update.mail=e.target.value)}/>
-                <Form.Text className="text-muted">
-                      Ni kommer att få ett mail skickat med en återställningskod
-                </Form.Text>
-                </Form.Group>
-                <Button onClick={() => resetPassword()}>Återställ lösenord</Button>
-            </Form>
+        <div>
+            <NeuInput
+                placeholder="Mail@Mail.com"
+                title="Vill du återställa ditt lösenord?"
+                color={color.blue}
+                onChange={(e) => setUpdate(update, update.mail=e.target.value)}
+            />
+            <NeuButton 
+                onClick={() => resetPassword()}
+                color={color.blue}>Återställ lösenord</NeuButton>
+        </div>
     )
     }
     if(step===1){
         return(
-            <Form>
-                <Form.Group controlId="formBasicCode">
-                <Form.Label>Ange koden ni fick till er mail ({update.email})</Form.Label>
-                <Form.Control type="code" placeholder="xxxxxx" onChange={e => setUpdate(update, update.code=e.target.value)}/>
-                <Form.Text className="text-muted">
-                      Hittar ni inte koden så kolla i skräpposten på er mail
-                </Form.Text>
-                <Form.Group controlId="formBasicPassword">
-                <Form.Label>Ert nya lösenord</Form.Label>
-                <Form.Control type="password" placeholder="Lösenord" onChange={e => setUpdate(update, update.password=e.target.value)}/>
-                <Form.Text className="text-muted">
-                      Lösenordet måste innehålla minst åtta tecken och en siffra
-                </Form.Text>
-            </Form.Group>
-                </Form.Group>
-                <Button onClick={() => changePassword()}>Återställ lösenord</Button>
-            </Form>
+            <div>
+            <NeuInput
+                placeholder="xxxxxx"
+                title="Ange koden ni fick till er mail"
+                color={color.blue}
+                onChange={(e) => setUpdate(update, update.code=e.target.value)}
+            />
+            <NeuInput
+                placeholder="Ert nya lösenord"
+                title="Ert nya lösenord"
+                color={color.blue}
+                onChange={(e) => setUpdate(update, update.password=e.target.value)}
+            />
+            <NeuButton onClick={() => changePassword()} color={color.blue}>Återställ lösenord</NeuButton>               
+            </div>
         )
     }           
 }

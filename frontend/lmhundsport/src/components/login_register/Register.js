@@ -5,7 +5,7 @@ import { Auth } from 'aws-amplify';
 import {Form, InputGroup} from 'react-bootstrap'
 import OrangeButton from '../shared/OrangeButton'
 import { NeuDiv } from "neumorphism-react";
-import NeuInput from './NeuInput'
+import NeuInput from '../shared/NeuInput'
 import NeuButton from '../shared/NeuButton'
 import color from '../../constants/color'
 

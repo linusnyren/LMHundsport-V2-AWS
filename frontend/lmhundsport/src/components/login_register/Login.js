@@ -6,11 +6,10 @@ import ResetPassword from '../ResetPassword'
 import OrangeButton from '../shared/OrangeButton'
 import axios from 'axios';
 import { NeuDiv } from "neumorphism-react";
-import NeuInput from './NeuInput'
+import NeuInput from '../shared/NeuInput'
 import './Login.css'
 import color from '../../constants/color'
 import NeuButton from '../shared/NeuButton'
-
 export default function Login(props){
     const history = useHistory()
     const [user, setUser] = useState({
